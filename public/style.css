@@ -1,0 +1,344 @@
+/* body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.qr-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.qr-image {
+  width: 200px;
+  height: auto;
+}
+
+.todo-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.todo-table th, .todo-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.status-done {
+  color: green;
+  font-weight: bold;
+}
+
+.status-pending {
+  color: orange;
+  font-weight: bold;
+}
+
+.btn {
+  background: #007bff;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #0056b3;
+}
+
+.success-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.preview-image {
+  width: 200px;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+.login-container, .dashboard-container {
+  width: 80%;
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dashboard-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.dashboard-container th, .dashboard-container td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.delete {
+  background: red;
+}
+
+.delete:hover {
+  background: darkred;
+}
+.admin-btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.admin-btn:hover {
+  background-color: #0056b3;
+} */
+
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 900px;
+  background: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* QR Section */
+.qr-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.qr-image {
+  width: 180px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.qr-label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Admin Button */
+.admin-btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 18px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-bottom: 20px;
+}
+
+.admin-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Tables */
+.todo-table table,
+.dashboard-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: #fff;
+  overflow-x: auto;
+}
+
+.todo-table th,
+.todo-table td,
+.dashboard-container th,
+.dashboard-container td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.todo-table th,
+.dashboard-container th {
+  background: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.status-done {
+  color: green;
+  font-weight: bold;
+}
+
+.status-pending {
+  color: orange;
+  font-weight: bold;
+}
+
+/* Buttons */
+.btn {
+  background: #007bff;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #0056b3;
+}
+
+.delete {
+  background: red;
+}
+
+.delete:hover {
+  background: darkred;
+}
+
+/* Success Page */
+.success-container {
+  text-align: center;
+  margin-top: 40px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.preview-image {
+  width: 200px;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+/* Login & Dashboard */
+.login-container,
+.dashboard-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 30px auto;
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dashboard-container h1 {
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="file"] {
+  width: 100%;
+  max-width: 250px;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form {
+  display: inline-block;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .qr-image {
+    width: 150px;
+  }
+
+  .todo-table table,
+  .dashboard-container table {
+    font-size: 12px;
+  }
+
+  .btn {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  input[type="file"] {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .qr-image {
+    width: 120px;
+  }
+
+  .admin-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .todo-table table,
+  .dashboard-container table {
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Proof</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+
+  <div class="container">
+    <div style="text-align: center; margin-top: 20px;">
+  <a href="/admin" class="admin-btn">Login as Admin</a>
+</div>
+    <div class="qr-section">
+      <img src="/qr.png" alt="QR Code" class="qr-image" />
+      <div class="qr-label">Scan to Pay</div>
+    </div>
+
+    <div class="todo-table">
+      <table>
+        <thead>
+          <tr>
+            <th>User/Amount</th>
+            <th>Status</th>
+            <th>Upload Proof</th>
+            <th>Ref ID</th>
+            <th>Submit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% payuser.forEach(payusers=> { %>
+
+            <% if(payusers.status=="Pending" ){%>
+
+              <tr>
+                <form action="/submit" method="POST" enctype="multipart/form-data">
+                  <td>
+                    <input type="hidden" name="name" value="<%= payusers.name %>" />
+                    <input type="hidden" name="userId" value="<%= payusers._id %>" />
+                    <%= payusers.name %>/₹<%=payusers.amount %>
+                  </td>
+                  <td>
+                    <span class="<%= payusers.status === 'Done' ? 'status-done' : 'status-pending' %>">
+                      <%= payusers.status %>⏳
+                    </span>
+                  </td>
+                  <td>
+                    <input type="file" name="proof" accept="image/*" required />
+                  </td>
+                  <td>
+                    <input type="text" name="paymentId" placeholder="e.g. UPI txn id" required />
+                  </td>
+                  <td>
+                    <button type="submit" class="btn">Submit</button>
+                  </td>
+                </form>
+              </tr>
+              <%}%>
+                <% }) %>
+        </tbody>
+      </table>
+
+
+
+      <br>
+      <br>
+      <hr>
+      <strong>UNDER REVIEW</strong>
+      <br>
+     
+      <table>
+      <thead>
+        <tr>
+          <th>User Name</th>
+          <th>Status</th>
+          <th>Amount</th>
+
+        </tr>
+      </thead>
+
+
+
+      <tbody>
+
+
+        <% payment.forEach(payments=> { %>
+          <tr>
+
+            <% if(payments.status=="Under Review" ) {%>
+              <td>
+                <%= payments.userName %>
+              </td>
+              <td>
+                <%= payments.status %>👀
+              </td>
+              <td>
+                <%= payments.paymentId %>
+              </td>
+              <%}%>
+
+          </tr>
+          <% }) %>
+
+
+      </tbody>
+      </table>
+<br>
+ <br>
+ <hr>
+      <strong>PAYMENT DONE</strong>
+      <br>
+
+      <table>
+        <thead>
+          <tr>
+            <th>User Name</th>
+            <th>Status</th>
+            <th>Payment ID</th>
+
+          </tr>
+        </thead>
+
+
+
+        <tbody>
+
+
+          <% payment.forEach(payments=> { %>
+            <tr>
+
+              <% if(payments.status=="Done" ) {%>
+                <td>
+                  <%= payments.userName %>
+                </td>
+                <td>
+                  <%= payments.status %>✅ 
+                </td>
+                <td>
+                  <%= payments.paymentId %>
+                </td>
+                <%}%>
+
+            </tr>
+            <% }) %>
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- ✅ Add this Script -->
+
+</body>
+
+
+
+</html>

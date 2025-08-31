@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <h1>Admin Dashboard</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>User Name</th>
+          <th>Payment ID</th>
+          <th>Status</th>
+          <th>Proof</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% payments.forEach(payment => { %>
+          <tr>
+            <td><%= payment.userName %></td>
+            <td><%= payment.paymentId %></td>
+            <td><%= payment.status %></td>
+            <td>
+              <img src="<%= payment.proofUrl %>" width="80" style="border-radius:5px;">
+            </td>
+            <td>
+              <% if (payment.status !== 'Done') { %>
+                <form action="/update-status/<%= payment._id %>" method="POST" style="display:inline;">
+                  <button type="submit" class="btn">Mark Done</button>
+                </form>
+              <% } %>
+              <form action="/delete/<%= payment._id %>" method="POST" style="display:inline;">
+                <button type="submit" class="btn delete">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <a href="/" class="btn">Go Back</a>
+  </div>
+  <hr>
+
+<h2>Add New User</h2>
+<form action="/add-user" method="POST" style="margin-bottom:20px;">
+  <input type="text" name="name" placeholder="Enter User Name" required>
+  <input type="number" name="amount" placeholder="Enter Amount" required>
+  <button type="submit" class="btn">Add User</button>
+</form>
+
+</body>
+</html>

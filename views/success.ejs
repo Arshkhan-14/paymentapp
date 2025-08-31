@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Success</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="success-container">
+    <h1>✅ Payment Proof Submitted Successfully!</h1>
+    <p><strong>User Name:</strong> <%= payment.userName %></p>
+    <p><strong>Payment ID:</strong> <%= payment.paymentId %></p>
+    <p><strong>Status:</strong> <%= payment.status %></p>
+    <img src="<%= payment.proofUrl %>" alt="Uploaded Proof" class="preview-image"/>
+    <a href="/" class="btn">Go Back</a>
+  </div>
+</body>
+</html>
